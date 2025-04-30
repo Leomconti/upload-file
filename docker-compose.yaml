@@ -1,0 +1,16 @@
+name: utils-api
+
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    networks:
+      - dokploy-network
+    restart: always
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+networks:
+  dokploy-network:
+    external: true
